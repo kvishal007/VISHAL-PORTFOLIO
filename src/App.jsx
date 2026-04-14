@@ -8,7 +8,7 @@ import Contact from './sections/Contact'
 
 function App() {
   return (
-    <div className="bg-white min-h-screen text-gray-900 font-sans">
+    <div className="bg-transparent min-h-screen text-white font-sans">
       <Navbar />
       <main>
         <Hero />

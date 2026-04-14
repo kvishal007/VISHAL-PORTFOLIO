@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ffffff;
-  --color-secondary: #fdfbf7;
-  --color-text-main: #3e2723;
-  --color-text-muted: #6d4c41;
-  --color-accent: #8d6e63;
-  --color-accent-dark: #5d4037;
+  --color-primary: #0a0f18;
+  --color-secondary: #131b26;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-accent: #8b5cf6;
+  --color-accent-dark: #6d28d9;
+
+  --color-pink-glow: #ec4899;
+  --color-blue-glow: #3b82f6;
 
   --font-family-sans: 'Inter', sans-serif;
 }
@@ -23,6 +26,9 @@ body {
   color: var(--color-text-main);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15), transparent 25%);
 }
 
 .section-padding {
@@ -36,4 +42,10 @@ body {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-accent), var(--color-pink-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

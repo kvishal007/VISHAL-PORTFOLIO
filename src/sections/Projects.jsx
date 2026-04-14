@@ -27,20 +27,20 @@ const projects = [
 ]
 
 const Projects = () => (
-  <section id="projects" className="section-padding bg-gray-50">
+  <section id="projects" className="section-padding bg-transparent">
     <div className="container-custom">
-      <h2 className="text-3xl font-bold text-gray-900 mb-12 flex items-center">
+      <h2 className="text-3xl font-bold text-white mb-12 flex items-center">
         <span className="text-accent mr-2 text-xl font-normal">03.</span> Some Things I've Built
       </h2>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((p, i) => (
-          <div key={i} className="bg-white border border-gray-200 rounded-xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl flex flex-col">
+          <div key={i} className="bg-secondary/50 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl flex flex-col">
             <div className="flex justify-between items-center mb-6">
               <div className="text-accent">
                 <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
               </div>
-              <div className="flex gap-4 text-gray-500">
+              <div className="flex gap-4 text-gray-400">
                 <a href={p.github} className="hover:text-accent transition-colors" aria-label="GitHub Link" target="_blank" rel="noopener noreferrer">
                   <GitHubIcon size={20} />
                 </a>
@@ -50,12 +50,12 @@ const Projects = () => (
               </div>
             </div>
             
-            <h3 className="text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">
+            <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-1">
               {p.description}
             </p>
             
-            <ul className="flex flex-wrap gap-3 text-xs font-mono text-gray-500">
+            <ul className="flex flex-wrap gap-3 text-xs font-mono text-gray-400">
               {p.tags.map(tag => (
                 <li key={tag}>{tag}</li>
               ))}

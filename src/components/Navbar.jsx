@@ -19,26 +19,26 @@ const Navbar = () => {
   }, [])
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-gray-200' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-secondary/70 backdrop-blur-xl border-b border-gray-700' : 'bg-transparent'}`}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold text-gray-900 tracking-tight">K.VISHAL</a>
+        <a href="#" className="text-xl font-bold text-white tracking-tight">K.VISHAL</a>
 
         <div className="hidden md:flex gap-8">
           {links.map(l => (
             <a key={l.id} href={`#${l.id}`}
-              className="text-gray-600 hover:text-accent text-sm font-medium transition-colors">
+              className="text-gray-300 hover:text-accent text-sm font-medium transition-colors">
               {l.title}
             </a>
           ))}
         </div>
 
-        <button className="md:hidden text-gray-900" onClick={() => setOpen(!open)}>
+        <button className="md:hidden text-white" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-white border-b border-gray-200">
+        <div className="md:hidden bg-secondary/50 backdrop-blur-sm border-b border-gray-700">
           <div className="flex flex-col py-4 px-6 gap-4">
             {links.map(l => (
               <a key={l.id} href={`#${l.id}`}

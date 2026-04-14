@@ -50,7 +50,7 @@ const CustomCursor = () => {
   return (
     <>
       <div 
-        className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10000]"
+        className="fixed top-0 left-0 w-2 h-2 bg-secondary/50 backdrop-blur-sm rounded-full pointer-events-none z-[10000]"
         style={{ left: mousePosition.x - 4, top: mousePosition.y - 4 }}
       />
       <motion.div
