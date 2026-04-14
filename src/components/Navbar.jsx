@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="hidden md:flex gap-8">
           {links.map(l => (
             <a key={l.id} href={`#${l.id}`}
-              className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
+              className="text-gray-600 hover:text-accent text-sm font-medium transition-colors">
               {l.title}
             </a>
           ))}
@@ -43,7 +43,7 @@ const Navbar = () => {
             {links.map(l => (
               <a key={l.id} href={`#${l.id}`}
                 onClick={() => setOpen(false)}
-                className="text-lg font-medium text-gray-700 hover:text-blue-600">
+                className="text-lg font-medium text-gray-700 hover:text-accent">
                 {l.title}
               </a>
             ))}

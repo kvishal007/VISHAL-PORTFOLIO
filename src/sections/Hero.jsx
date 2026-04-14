@@ -9,7 +9,7 @@ const Hero = () => (
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-blue-600 font-semibold tracking-wide text-sm md:text-base mb-4"
+        className="text-accent font-semibold tracking-wide text-sm md:text-base mb-4"
       >
         Hello, my name is
       </motion.p>
@@ -47,7 +47,7 @@ const Hero = () => (
         transition={{ duration: 0.5, delay: 0.4 }}
         className="flex flex-wrap gap-4"
       >
-        <a href="#projects" className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+        <a href="#projects" className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg font-medium hover:bg-accent-dark transition-colors">
           View Projects <ArrowRight size={18} />
         </a>
         <a href="#contact" className="inline-flex items-center gap-2 bg-white text-gray-900 border border-gray-300 px-8 py-4 rounded-lg font-medium hover:bg-gray-50 transition-colors">

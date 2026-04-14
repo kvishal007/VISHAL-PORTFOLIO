@@ -25,7 +25,7 @@ const Contact = () => {
     <section id="contact" className="section-padding bg-white relative">
       <div className="container-custom">
         <h2 className="text-3xl font-bold text-gray-900 mb-12 flex items-center justify-center">
-          <span className="text-blue-600 mr-2 text-xl font-normal">04.</span> Get In Touch
+          <span className="text-accent mr-2 text-xl font-normal">04.</span> Get In Touch
         </h2>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-5 gap-12 lg:gap-20">
@@ -41,23 +41,23 @@ const Contact = () => {
 
             <div className="space-y-4">
               <div className="flex items-center text-gray-600">
-                <Mail className="w-5 h-5 text-blue-600 mr-4" />
-                <a href="mailto:k.vishal108737@gmail.com" className="hover:text-blue-600 transition-colors">k.vishal108737@gmail.com</a>
+                <Mail className="w-5 h-5 text-accent mr-4" />
+                <a href="mailto:k.vishal108737@gmail.com" className="hover:text-accent transition-colors">k.vishal108737@gmail.com</a>
               </div>
               <div className="flex items-center text-gray-600">
-                <Phone className="w-5 h-5 text-blue-600 mr-4" />
-                <a href="tel:6374712490" className="hover:text-blue-600 transition-colors">6374712490</a>
+                <Phone className="w-5 h-5 text-accent mr-4" />
+                <a href="tel:6374712490" className="hover:text-accent transition-colors">6374712490</a>
               </div>
             </div>
 
             <div className="pt-4 border-t border-gray-100 flex gap-4">
-              <a href="#" className="p-2 text-gray-400 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">
+              <a href="#" className="p-2 text-gray-400 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors">
                 <GitHubIcon size={20} />
               </a>
-              <a href="#" className="p-2 text-gray-400 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">
+              <a href="#" className="p-2 text-gray-400 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors">
                 <LinkedInIcon size={20} />
               </a>
-              <a href="#" className="p-2 text-gray-400 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors">
+              <a href="#" className="p-2 text-gray-400 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors">
                 <TwitterIcon size={20} />
               </a>
             </div>
@@ -70,24 +70,24 @@ const Contact = () => {
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                   <input type="text" id="name" name="name" value={form.name} onChange={handleChange} required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                     placeholder="John Doe" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                     placeholder="john@example.com" />
                 </div>
               </div>
               <div className="mb-6">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                 <textarea id="message" name="message" value={form.message} onChange={handleChange} required rows="4"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-y"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-y"
                   placeholder="How can I help you?"></textarea>
               </div>
               <button type="submit" disabled={loading}
-                className="w-full bg-blue-600 text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-70 flex justify-center items-center">
+                className="w-full bg-accent text-white font-medium py-3 rounded-lg hover:bg-accent-dark transition-colors disabled:opacity-70 flex justify-center items-center">
                 {loading ? (
                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -101,7 +101,7 @@ const Contact = () => {
       </div>
       
       <div className="mt-20 pt-8 border-t border-gray-100 text-center pb-6">
-        <p className="text-sm text-gray-500 hover:text-blue-600 transition-colors cursor-pointer">
+        <p className="text-sm text-gray-500 hover:text-accent transition-colors cursor-pointer">
           Designed & Built by K.VISHAL
         </p>
       </div>

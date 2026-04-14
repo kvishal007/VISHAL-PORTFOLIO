@@ -2,10 +2,11 @@
 
 @theme {
   --color-primary: #ffffff;
-  --color-secondary: #f9fafb;
-  --color-text-main: #111827;
-  --color-text-muted: #6b7280;
-  --color-accent: #2563eb;
+  --color-secondary: #fdfbf7;
+  --color-text-main: #3e2723;
+  --color-text-muted: #6d4c41;
+  --color-accent: #8d6e63;
+  --color-accent-dark: #5d4037;
 
   --font-family-sans: 'Inter', sans-serif;
 }
