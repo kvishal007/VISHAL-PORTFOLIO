@@ -74,7 +74,7 @@ const About = () => {
             <div className="absolute inset-0 rounded-lg border-2 border-[#00bbf9] translate-x-3 translate-y-3 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300" />
             <div className="relative w-full h-full rounded-lg bg-slate-800 border border-slate-700 overflow-hidden z-10 flex items-center justify-center">
               <img
-                src="/vishal.png"
+                src="/vishal.jpeg"
                 alt="K. Vishal"
                 className="w-full h-full object-cover"
                 onError={(e) => {
