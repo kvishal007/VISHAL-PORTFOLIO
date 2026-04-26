@@ -2,99 +2,115 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'HTML', color: 'var(--color-accent-orange)' },
-  { name: 'CSS', color: 'var(--color-accent-blue)' },
-  { name: 'JavaScript', color: 'var(--color-accent-pink)' },
-  { name: 'React', color: 'var(--color-accent-purple)' },
-  { name: 'Node.js', color: 'var(--color-accent-pink)' },
-  { name: 'Python', color: 'var(--color-accent-blue)' },
-  { name: 'Git', color: 'var(--color-accent-orange)' },
-  { name: 'Tailwind', color: 'var(--color-accent-blue)' },
+  'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Python', 'Git', 'Tailwind CSS',
 ];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+    <section id="about" className="py-24">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-80px' }}
+        variants={fadeUp}
+      >
+        <h2 className="flex items-center gap-4 text-2xl font-bold text-slate-100 mb-12">
+          <span className="text-[#00bbf9] font-mono text-lg font-normal">01.</span>
+          About Me
+          <span className="flex-1 h-[1px] bg-slate-800 max-w-xs" />
+        </h2>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
+        {/* Text column */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeUp}
+          className="md:col-span-3 space-y-4 text-slate-400 leading-relaxed"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4">
-            MISSION <span className="text-stroke">MANIFEST</span>
-          </h2>
-          <div className="w-20 h-1 bg-accent-blue rounded-full"></div>
+          <p>
+            Hey! I'm <span className="text-slate-200 font-medium">K. Vishal</span>, a 2nd year B.Tech AI & Data Science student at{' '}
+            <span className="text-slate-200 font-medium">Kamaraj College of Engineering and Technology, Virudhunagar</span>.
+          </p>
+          <p>
+            I'm a self-taught full stack web developer passionate about building real-world applications that solve actual problems. I enjoy working across the entire stack — from designing intuitive UIs in React to wiring up backends with Node.js and Express.
+          </p>
+          <p>
+            When I'm not coding, you'll find me at the gym — I compete in powerlifting and placed{' '}
+            <span className="text-[#00bbf9] font-medium">3rd at the Open State Bench Press & Deadlift Championship</span>. I believe the same consistency required to lift heavy translates directly to writing good code.
+          </p>
+
+          <div className="pt-4">
+            <p className="text-slate-300 font-medium mb-4">Technologies I work with:</p>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1.5 text-xs font-mono font-medium text-[#00bbf9] bg-[rgba(0,187,249,0.08)] border border-[rgba(0,187,249,0.2)] rounded-md"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Summary Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:w-1/2 glass-card p-10 rounded-3xl relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-accent-purple/10 rounded-full blur-3xl -translate-y-12 translate-x-12 group-hover:bg-accent-purple/20 transition-all"></div>
-            
-            <p className="text-xl text-gray-300 leading-relaxed mb-6">
-              I am <span className="text-white font-bold">K. Vishal</span>, a <span className="text-accent-blue">2nd year B.Tech AI & DS student</span> passionate about building real-world web applications.
-            </p>
-            <p className="text-gray-400 mb-8">
-              Based in Viruthunagar – Sivakasi, Tamil Nadu, I focus on creating seamless interfaces and functional backends to bring innovative ideas to life.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border-l-2 border-accent-pink pl-4">
-                <h4 className="text-white font-bold text-lg">College</h4>
-                <p className="text-gray-500 text-sm">KCET, Virudhunagar</p>
-              </div>
-              <div className="border-l-2 border-accent-blue pl-4">
-                <h4 className="text-white font-bold text-lg">Location</h4>
-                <p className="text-gray-500 text-sm">Tamil Nadu, IN</p>
+        {/* Photo placeholder */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeUp}
+          className="md:col-span-2 flex justify-center"
+        >
+          <div className="relative w-56 h-56 group">
+            <div className="absolute inset-0 rounded-lg border-2 border-[#00bbf9] translate-x-3 translate-y-3 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300" />
+            <div className="relative w-full h-full rounded-lg bg-slate-800 border border-slate-700 overflow-hidden z-10 flex items-center justify-center">
+              <img
+                src="/vishal.png"
+                alt="K. Vishal"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="absolute inset-0 hidden items-center justify-center flex-col gap-2 text-slate-500" style={{display:'none'}}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+                <span className="text-xs">K. Vishal</span>
               </div>
             </div>
-          </motion.div>
-
-          {/* Drifting Skill Tags */}
-          <div className="lg:w-1/2 relative h-[400px] flex flex-wrap gap-4 items-center justify-center p-4">
-            {skills.map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                animate={{
-                  y: [0, Math.sin(i) * 20, 0],
-                  rotate: [0, (i % 2 === 0 ? 5 : -5), 0],
-                }}
-                transition={{
-                  y: {
-                    duration: 3 + Math.random() * 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                  rotate: {
-                    duration: 4 + Math.random() * 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                  delay: i * 0.1,
-                }}
-                className="px-6 py-3 rounded-full glass-panel border border-white/5 text-sm font-medium tracking-wide"
-                style={{
-                  boxShadow: `0 0 15px ${skill.color}22`,
-                  borderColor: `${skill.color}44`,
-                  color: skill.name === 'React' || skill.name === 'JavaScript' ? '#fff' : '#ccc'
-                }}
-              >
-                {skill.name}
-              </motion.div>
-            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Info grid */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-80px' }}
+        variants={fadeUp}
+        className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6"
+      >
+        {[
+          { label: 'Location', value: 'Viruthunagar, TN' },
+          { label: 'College', value: 'KCET Virudhunagar' },
+          { label: 'Year', value: '2nd Year B.Tech' },
+          { label: 'Branch', value: 'AI & Data Science' },
+        ].map(({ label, value }) => (
+          <div key={label} className="border-l-2 border-[#00bbf9] pl-4">
+            <p className="text-xs text-slate-500 uppercase tracking-widest font-mono mb-1">{label}</p>
+            <p className="text-slate-300 font-medium text-sm">{value}</p>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 };

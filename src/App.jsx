@@ -1,75 +1,68 @@
-import React, { useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import Lenis from 'lenis';
-
-import Navbar from './components/Navbar';
+import React, { useEffect, useState } from 'react';
+import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
-import ParticleField from './components/ParticleField';
+
+const SECTIONS = ['hero', 'about', 'experience', 'projects', 'achievements', 'contact'];
 
 function App() {
-  // Smooth scroll initialization
+  const [activeSection, setActiveSection] = useState('hero');
+
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
+    const observers = {};
+
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0.25, rootMargin: '-10% 0px -60% 0px' }
+      );
+
+      observer.observe(el);
+      observers[id] = observer;
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
     return () => {
-      lenis.destroy();
+      Object.values(observers).forEach((obs) => obs.disconnect());
     };
   }, []);
 
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   return (
-    <div className="relative bg-background text-white selection:bg-accent-blue selection:text-background">
-      <CustomCursor />
-      <ParticleField />
-      
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-purple via-accent-blue to-accent-pink z-[1000] origin-left"
-        style={{ scaleX }}
-      />
+    <div className="min-h-screen bg-slate-950 text-slate-300">
+      <Sidebar activeSection={activeSection} />
 
-      <Navbar />
-      
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Achievements />
-        <Contact />
+      {/* Main content — offset by sidebar width on large screens */}
+      <main className="lg:pl-64">
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 pt-20 lg:pt-0">
+          <Hero />
+          <div className="border-t border-slate-800/60" />
+          <About />
+          <div className="border-t border-slate-800/60" />
+          <Experience />
+          <div className="border-t border-slate-800/60" />
+          <Projects />
+          <div className="border-t border-slate-800/60" />
+          <Achievements />
+          <div className="border-t border-slate-800/60" />
+          <Contact />
+
+          {/* Footer */}
+          <footer className="py-12 text-center text-xs text-slate-600 font-mono">
+            <p>Designed & built by K. Vishal</p>
+            <p className="mt-1">© 2026 — All rights reserved</p>
+          </footer>
+        </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

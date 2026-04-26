@@ -3,75 +3,98 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    company: 'Lamda Tech Softics',
     role: 'Web Development Intern',
-    period: 'Dec 4 - 20, 2025',
-    description: 'Received hands-on training and actively contributed to building modern web applications, enhancing skills in frontend and backend technologies.',
-    color: 'var(--color-accent-purple)',
+    company: 'Lamda Tech Softics',
+    period: 'Dec 4 – 20, 2025',
+    type: 'Internship',
+    points: [
+      'Built responsive web pages using HTML, CSS, and JavaScript.',
+      'Collaborated with the team to implement UI designs accurately.',
+      'Gained hands-on experience with real-world development workflows.',
+    ],
+    color: '#00bbf9',
   },
   {
+    role: 'Industrial Visit Participant',
     company: 'Kevell Global Solutions LLP, Madurai',
-    role: 'Industrial Visit',
     period: 'Mar 5, 2026',
-    description: 'Gained practical insights into software development lifecycles and corporate tech environments through an immersive industrial visit.',
-    color: 'var(--color-accent-blue)',
-  }
+    type: 'Industrial Visit',
+    points: [
+      'Visited an active software development company to understand industry practices.',
+      'Received insights on software development lifecycles and team structures.',
+      'Earned a Certificate of Participation.',
+    ],
+    color: '#64748b',
+  },
 ];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4">
-            CHRONO <span className="text-stroke">LOG</span>
-          </h2>
-          <div className="w-20 h-1 bg-accent-pink rounded-full"></div>
-        </motion.div>
+    <section id="experience" className="py-24">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-80px' }}
+        variants={fadeUp}
+      >
+        <h2 className="flex items-center gap-4 text-2xl font-bold text-slate-100 mb-12">
+          <span className="text-[#00bbf9] font-mono text-lg font-normal">02.</span>
+          Experience
+          <span className="flex-1 h-[1px] bg-slate-800 max-w-xs" />
+        </h2>
+      </motion.div>
 
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-bottom from-accent-purple via-accent-blue to-accent-pink transform -translate-x-1/2 hidden md:block"></div>
-          
-          <div className="space-y-16">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
-                {/* Timeline Node */}
-                <div className="absolute left-[-5px] md:left-1/2 w-3 h-3 bg-background border-2 border-white rounded-full z-20 transform -translate-x-1/2 hidden md:block">
-                  <div 
-                    className="absolute inset-0 rounded-full animate-ping opacity-75"
-                    style={{ backgroundColor: exp.color }}
-                  ></div>
+      <div className="relative flex flex-col gap-10">
+        {/* Vertical line */}
+        <div className="absolute left-[7px] top-2 bottom-2 w-[1px] bg-slate-800" />
+
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={{
+              hidden: { opacity: 0, x: -20 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: index * 0.1, ease: 'easeOut' } },
+            }}
+            className="pl-10 relative"
+          >
+            {/* Dot */}
+            <div
+              className="absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 border-[#00bbf9] bg-slate-950 z-10"
+            />
+
+            {/* Card */}
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
+              <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                <div>
+                  <h3 className="text-slate-100 font-semibold text-base">{exp.role}</h3>
+                  <p className="text-[#00bbf9] text-sm font-medium mt-0.5">{exp.company}</p>
                 </div>
-
-                {/* Content Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className={`w-full md:w-[45%] glass-card p-8 rounded-3xl border-l-4 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
-                  style={{ borderColor: exp.color }}
-                >
-                  <span className="text-xs font-mono tracking-widest text-gray-500 mb-2 block uppercase">{exp.period}</span>
-                  <h3 className="text-2xl font-bold text-white mb-1">{exp.role}</h3>
-                  <h4 className="text-lg font-medium mb-4" style={{ color: exp.color }}>{exp.company}</h4>
-                  <p className="text-gray-400 leading-relaxed text-sm">
-                    {exp.description}
-                  </p>
-                </motion.div>
-                
-                {/* Mobile line (small) */}
-                <div className="md:hidden absolute left-0 top-0 bottom-0 w-[1px] bg-gray-800 -z-10 ml-1"></div>
+                <div className="text-right flex-shrink-0">
+                  <span className="text-xs text-slate-500 font-mono bg-slate-800 px-2 py-1 rounded">
+                    {exp.period}
+                  </span>
+                  <p className="text-xs text-slate-600 mt-1">{exp.type}</p>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
+              <ul className="space-y-2 mt-4">
+                {exp.points.map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
+                    <span className="text-[#00bbf9] mt-1.5 flex-shrink-0">▹</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

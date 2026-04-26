@@ -1,89 +1,97 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Award } from 'lucide-react';
 
 const achievements = [
   {
+    emoji: '🥉',
     title: '3rd Place – Open State Bench Press & Deadlift Championship',
-    organization: 'Amateur Powerlifting Association',
+    org: 'Amateur Powerlifting Association (APA)',
     date: 'Mar 29, 2026',
-    details: '56kg Junior Category',
-    icon: Trophy,
-    color: 'var(--color-accent-orange)',
+    detail: '56kg Junior Category',
+    highlight: true,
   },
   {
-    title: 'Certificate of Participation',
-    organization: 'Kevell Global Solutions',
-    date: 'Mar 5, 2026',
-    details: 'Industrial Visit',
-    icon: Award,
-    color: 'var(--color-accent-blue)',
+    emoji: '📜',
+    title: 'Certificate of Completion – Web Development Internship',
+    org: 'Lamda Tech Softics',
+    date: 'Dec 2025',
+    detail: null,
+    highlight: false,
   },
   {
-    title: 'Certificate of Completion',
-    organization: 'Lamda Tech Softics',
-    date: 'Dec 20, 2025',
-    details: 'Web Development Internship',
-    icon: Award,
-    color: 'var(--color-accent-purple)',
-  }
+    emoji: '🏛️',
+    title: 'Certificate of Participation – Industrial Visit',
+    org: 'Kevell Global Solutions LLP',
+    date: 'Mar 2026',
+    detail: null,
+    highlight: false,
+  },
 ];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: i * 0.1, ease: 'easeOut' },
+  }),
+};
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-display font-extrabold mb-4">
-            TROPHY <span className="text-stroke">ROOM</span>
-          </h2>
-          <div className="w-20 h-1 bg-accent-orange rounded-full"></div>
-        </motion.div>
+    <section id="achievements" className="py-24">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-80px' }}
+        variants={fadeUp}
+        custom={0}
+      >
+        <h2 className="flex items-center gap-4 text-2xl font-bold text-slate-100 mb-12">
+          <span className="text-[#00bbf9] font-mono text-lg font-normal">04.</span>
+          Achievements
+          <span className="flex-1 h-[1px] bg-slate-800 max-w-xs" />
+        </h2>
+      </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {achievements.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="glass-card p-8 rounded-3xl relative overflow-hidden group flex flex-col items-center text-center"
-                style={{
-                  boxShadow: `0 0 20px ${item.color}22`,
-                  borderColor: `${item.color}44`,
-                }}
+      <div className="flex flex-col gap-4">
+        {achievements.map((item, index) => (
+          <motion.div
+            key={index}
+            custom={index + 1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            className={`flex items-start gap-5 p-6 rounded-xl border transition-colors ${
+              item.highlight
+                ? 'bg-[rgba(0,187,249,0.05)] border-[rgba(0,187,249,0.2)] hover:border-[rgba(0,187,249,0.4)]'
+                : 'bg-slate-900 border-slate-800 hover:border-slate-700'
+            }`}
+          >
+            <span className="text-2xl mt-0.5 flex-shrink-0">{item.emoji}</span>
+            <div className="flex-1">
+              <h3
+                className={`font-semibold text-sm mb-1 ${
+                  item.highlight ? 'text-slate-100' : 'text-slate-200'
+                }`}
               >
-                {/* Glow Background */}
-                <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"
-                  style={{ backgroundColor: item.color }}
-                ></div>
-
-                <div className="relative z-10">
-                  <div 
-                    className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 glass-panel"
-                    style={{ color: item.color }}
-                  >
-                    <Icon size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400 mb-2 font-mono uppercase">{item.organization}</p>
-                  <p className="text-gray-300 font-medium mb-4">{item.details}</p>
-                  <span className="text-xs text-gray-500 tracking-widest">{item.date}</span>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                {item.title}
+              </h3>
+              <p className={`text-sm ${item.highlight ? 'text-[#00bbf9]' : 'text-slate-400'}`}>
+                {item.org}
+              </p>
+              {item.detail && (
+                <p className="text-xs text-slate-500 mt-1">{item.detail}</p>
+              )}
+            </div>
+            <div className="flex-shrink-0 text-right">
+              <span className="text-xs text-slate-500 font-mono bg-slate-800 px-2 py-1 rounded">
+                {item.date}
+              </span>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
