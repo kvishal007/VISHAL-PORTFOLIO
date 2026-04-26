@@ -48,11 +48,9 @@ const Hero = () => {
         >
           <Typewriter
             words={[
-              'Full Stack Engineer',
-              'React Developer',
-              'Node.js Expert',
-              'Problem Solver',
-              'Innovator'
+              'Full Stack Developer',
+              'AI & DS Student',
+              'Powerlifter'
             ]}
             loop={0}
             cursor
@@ -80,7 +78,7 @@ const Hero = () => {
             href="#contact"
             className="px-8 py-4 border border-white/20 hover:border-accent-purple/50 rounded-full transition-all text-white font-medium hover:bg-white/5"
           >
-            Get In Touch
+            Contact Me
           </a>
         </motion.div>
       </div>

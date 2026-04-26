@@ -2,18 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'JavaScript', color: 'var(--color-accent-blue)' },
+  { name: 'HTML', color: 'var(--color-accent-orange)' },
+  { name: 'CSS', color: 'var(--color-accent-blue)' },
+  { name: 'JavaScript', color: 'var(--color-accent-pink)' },
   { name: 'React', color: 'var(--color-accent-purple)' },
   { name: 'Node.js', color: 'var(--color-accent-pink)' },
-  { name: 'Three.js', color: 'var(--color-accent-blue)' },
-  { name: 'Tailwind CSS', color: 'var(--color-accent-orange)' },
-  { name: 'MongoDB', color: 'var(--color-accent-purple)' },
-  { name: 'Python', color: 'var(--color-accent-pink)' },
-  { name: 'Git', color: 'var(--color-accent-blue)' },
-  { name: 'AWS', color: 'var(--color-accent-orange)' },
-  { name: 'TypeScript', color: 'var(--color-accent-blue)' },
-  { name: 'Express', color: 'var(--color-accent-purple)' },
-  { name: 'SQL', color: 'var(--color-accent-pink)' },
+  { name: 'Python', color: 'var(--color-accent-blue)' },
+  { name: 'Git', color: 'var(--color-accent-orange)' },
+  { name: 'Tailwind', color: 'var(--color-accent-blue)' },
 ];
 
 const About = () => {
@@ -43,20 +39,20 @@ const About = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent-purple/10 rounded-full blur-3xl -translate-y-12 translate-x-12 group-hover:bg-accent-purple/20 transition-all"></div>
             
             <p className="text-xl text-gray-300 leading-relaxed mb-6">
-              I am <span className="text-white font-bold">K. Vishal</span>, a full-stack engineer navigating the intersection of <span className="text-accent-blue">design and high-performance code</span>.
+              I am <span className="text-white font-bold">K. Vishal</span>, a <span className="text-accent-blue">2nd year B.Tech AI & DS student</span> passionate about building real-world web applications.
             </p>
             <p className="text-gray-400 mb-8">
-              Based in the digital ether, I build immersive web experiences that defy gravity. My focus is on creating seamless interfaces with complex backends, ensuring every byte serves a purpose and every pixel tells a story.
+              Based in Viruthunagar – Sivakasi, Tamil Nadu, I focus on creating seamless interfaces and functional backends to bring innovative ideas to life.
             </p>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="border-l-2 border-accent-pink pl-4">
-                <h4 className="text-white font-bold text-lg">3+ Years</h4>
-                <p className="text-gray-500 text-sm">Building digital worlds</p>
+                <h4 className="text-white font-bold text-lg">College</h4>
+                <p className="text-gray-500 text-sm">KCET, Virudhunagar</p>
               </div>
               <div className="border-l-2 border-accent-blue pl-4">
-                <h4 className="text-white font-bold text-lg">20+ Projects</h4>
-                <p className="text-gray-500 text-sm">Successfully deployed</p>
+                <h4 className="text-white font-bold text-lg">Location</h4>
+                <p className="text-gray-500 text-sm">Tamil Nadu, IN</p>
               </div>
             </div>
           </motion.div>

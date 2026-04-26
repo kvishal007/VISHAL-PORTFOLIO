@@ -4,26 +4,19 @@ import { ExternalLink, Code2 } from 'lucide-react';
 
 const projects = [
   {
-    title: 'VISHAL-PORTFOLIO',
-    description: 'A multi-dimensional 3D portfolio experience with anti-gravity physics, built using R3F and GSAP.',
-    tech: ['React', 'Three.js', 'Framer Motion', 'Tailwind'],
-    links: { github: '#', live: '#' },
-    color: 'from-accent-purple to-accent-blue',
+    title: 'RK Gadget Store',
+    description: 'Full stack e-commerce platform with Frontend, Backend, and Admin Panel components integrated into a seamless experience.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+    links: { github: 'https://github.com/kvishal007', live: 'https://rkgadget-store.vercel.app' },
+    color: 'from-accent-orange to-accent-pink',
   },
   {
-    title: 'SMART CAMPUS',
-    description: 'AI-powered attendance and security system for educational institutions with real-time analytics.',
-    tech: ['React', 'Node.js', 'PyTorch', 'MongoDB'],
-    links: { github: '#', live: '#' },
-    color: 'from-accent-blue to-accent-pink',
-  },
-  {
-    title: 'RK BAZAAR',
-    description: 'Cyberpunk-themed high-performance e-commerce platform with specialized logistics routing.',
-    tech: ['Next.js', 'Redux', 'Stripe', 'Appwrite'],
-    links: { github: '#', live: '#' },
-    color: 'from-accent-pink to-accent-orange',
-  },
+    title: 'Smart Campus Attendance System',
+    description: 'Web-based attendance tracker utilizing JavaScript to monitor and record campus attendance data reliably.',
+    tech: ['JavaScript', 'HTML5', 'CSS3', 'Node.js'],
+    links: { github: 'https://github.com/kvishal007', live: '#' },
+    color: 'from-accent-blue to-accent-purple',
+  }
 ];
 
 const Projects = () => {

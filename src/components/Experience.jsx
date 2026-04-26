@@ -3,26 +3,19 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    company: 'Tech Horizons Inc.',
-    role: 'Senior Full Stack Engineer',
-    period: '2023 - Present',
-    description: 'Lead developer for core cloud infrastructure and AI integration services. Improved system scaling by 40%.',
+    company: 'Lamda Tech Softics',
+    role: 'Web Development Intern',
+    period: 'Dec 4 - 20, 2025',
+    description: 'Received hands-on training and actively contributed to building modern web applications, enhancing skills in frontend and backend technologies.',
     color: 'var(--color-accent-purple)',
   },
   {
-    company: 'Nexus Creative Studio',
-    role: 'Frontend Architect',
-    period: '2021 - 2023',
-    description: 'Crafted award-winning immersive web experiences using React and WebGL. Specialized in complex animations.',
+    company: 'Kevell Global Solutions LLP, Madurai',
+    role: 'Industrial Visit',
+    period: 'Mar 5, 2026',
+    description: 'Gained practical insights into software development lifecycles and corporate tech environments through an immersive industrial visit.',
     color: 'var(--color-accent-blue)',
-  },
-  {
-    company: 'DataFlow Systems',
-    role: 'Software Developer',
-    period: '2020 - 2021',
-    description: 'Built data visualization dashboards for enterprise clients using Node.js and D3.js.',
-    color: 'var(--color-accent-pink)',
-  },
+  }
 ];
 
 const Experience = () => {
