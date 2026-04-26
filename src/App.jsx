@@ -13,7 +13,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    const observers = {};
+    const observers = [];
 
     SECTIONS.forEach((id) => {
       const el = document.getElementById(id);
@@ -21,48 +21,51 @@ function App() {
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(id);
-          }
+          if (entry.isIntersecting) setActiveSection(id);
         },
-        { threshold: 0.25, rootMargin: '-10% 0px -60% 0px' }
+        { threshold: 0.3, rootMargin: '-10% 0px -55% 0px' }
       );
 
       observer.observe(el);
-      observers[id] = observer;
+      observers.push(observer);
     });
 
-    return () => {
-      Object.values(observers).forEach((obs) => obs.disconnect());
-    };
+    return () => observers.forEach((obs) => obs.disconnect());
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-300">
-      <Sidebar activeSection={activeSection} />
+    <div className="min-h-screen bg-[#0f172a] text-slate-300">
+      {/* ── Desktop: flex row ── */}
+      <div className="lg:flex lg:min-h-screen">
 
-      {/* Main content — offset by sidebar width on large screens */}
-      <main className="lg:pl-64">
-        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 pt-20 lg:pt-0">
-          <Hero />
-          <div className="border-t border-slate-800/60" />
-          <About />
-          <div className="border-t border-slate-800/60" />
-          <Experience />
-          <div className="border-t border-slate-800/60" />
-          <Projects />
-          <div className="border-t border-slate-800/60" />
-          <Achievements />
-          <div className="border-t border-slate-800/60" />
-          <Contact />
+        {/* LEFT – sidebar (sticky on desktop, fixed-header on mobile) */}
+        <Sidebar activeSection={activeSection} />
 
-          {/* Footer */}
-          <footer className="py-12 text-center text-xs text-slate-600 font-mono">
-            <p>Designed & built by K. Vishal</p>
-            <p className="mt-1">© 2026 — All rights reserved</p>
-          </footer>
-        </div>
-      </main>
+        {/* RIGHT – scrollable content */}
+        <main className="flex-1 min-w-0 pt-16 lg:pt-0">
+          <div
+            className="max-w-2xl mx-auto px-8 md:px-12"
+            style={{ paddingTop: '0' }}
+          >
+            <Hero />
+            <hr className="border-slate-800/70 my-0" />
+            <About />
+            <hr className="border-slate-800/70 my-0" />
+            <Experience />
+            <hr className="border-slate-800/70 my-0" />
+            <Projects />
+            <hr className="border-slate-800/70 my-0" />
+            <Achievements />
+            <hr className="border-slate-800/70 my-0" />
+            <Contact />
+            <footer className="py-12 text-center text-xs text-slate-600 font-mono border-t border-slate-800/60 mt-4">
+              <p>Designed & built by K. Vishal</p>
+              <p className="mt-1">© 2026</p>
+            </footer>
+          </div>
+        </main>
+
+      </div>
     </div>
   );
 }
